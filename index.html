@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick and Morty | Multiverso API</title>
+    <!-- Google Fonts para tipografia premium -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Estilo -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <h1 class="logo">Rick <span>&</span> Morty</h1>
+        <p class="subtitle">Explorador do Multiverso | Consumo de API</p>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <!-- Status Messages Container (Loading/Errors) -->
+      <section id="status-container" class="status-container">
+        <div class="loader"></div>
+        <p id="status-message">Abrindo portal...</p>
+      </section>
+
+      <!-- Characters Grid (Container que receberá os dados) -->
+      <section id="characters-grid" class="characters-grid hidden">
+        <!-- Cards serão injetados aqui dinamicamente pelo JavaScript -->
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Desenvolvido para Sprint - Consumo de API</p>
+    </footer>
+
+    <!-- JavaScript Script -->
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html>

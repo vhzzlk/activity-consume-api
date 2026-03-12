@@ -1,0 +1,233 @@
+/* Reset and Variables */
+:root {
+  --primary-color: #97ce4c; /* Rick and Morty Green */
+  --secondary-color: #f0e14a; /* Rick and Morty Yellow */
+  --background-dark: #202329;
+  --card-bg: #3c3e44;
+  --text-light: #ffffff;
+  --text-muted: #9e9e9e;
+  --danger: #ff4c4c;
+  --glass-bg: rgba(60, 62, 68, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background-color: #ffffff;
+  background-image: linear-gradient(to right, #1a1a1a, #2a2a2a);
+  padding: 3rem 1rem;
+  text-align: center;
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: 0 4px 15px rgba(151, 206, 76, 0.2);
+}
+
+.logo {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+  text-shadow: 0 0 10px rgba(151, 206, 76, 0.5);
+}
+
+.logo span {
+  color: var(--primary-color);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  font-weight: 300;
+}
+
+/* Main Container */
+.main-container {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  width: 100%;
+}
+
+/* Status: Loading and Errors */
+.status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+#status-message {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.error-text {
+  color: var(--danger) !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Loader Animation */
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(151, 206, 76, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grid Layout */
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  animation: fadeIn 0.8s ease;
+}
+
+/* Character Card - Glassmorphism & Hover Animations */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(151, 206, 76, 0.3);
+  border-color: var(--primary-color);
+}
+
+.card-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover .card-img {
+  border-bottom-color: var(--primary-color);
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Status Indicators */
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-indicator.alive {
+  background-color: #55cc44;
+}
+.status-indicator.dead {
+  background-color: #d63d2e;
+}
+.status-indicator.unknown {
+  background-color: #9e9e9e;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+/* Responsive Features */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+  .main-container {
+    padding: 2rem 1rem;
+  }
+}
